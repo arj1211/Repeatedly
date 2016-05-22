@@ -26,23 +26,11 @@
         android:layout_gravity="center_horizontal"
         android:hint="Msg" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:text="Contact Numbers" />
-
     <ListView
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:id="@+id/numberList"
         android:layout_gravity="center_horizontal" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:text="Messages " />
 
     <ListView
         android:layout_width="match_parent"
