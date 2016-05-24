@@ -8,9 +8,9 @@ import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -19,11 +19,14 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     EditText msgEdit, numEdit;
-    Button sendBtn;
+    Button sendBtn, addMsgButton;
 
     ListView msgList, numList;
 
     ArrayList<String> messages = new ArrayList<>(), numbers = new ArrayList<>();
+
+    BaseAdapter numberAdapter;
+    BaseAdapter messageAdapter;
 
 
     @Override
@@ -34,8 +37,11 @@ public class MainActivity extends AppCompatActivity {
         numEdit = (EditText) findViewById(R.id.numberText);
         msgEdit = (EditText) findViewById(R.id.messageText);
         sendBtn = (Button) findViewById(R.id.sendButton);
+        addMsgButton = (Button) findViewById(R.id.addMsgButton);
         msgList = (ListView) findViewById(R.id.messageList);
         numList = (ListView) findViewById(R.id.numberList);
+        numberAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, numbers);
+        messageAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, messages);
 
         messages.add("Stuck in traffic, will be late.");
         messages.add("Picking up dinner.");
@@ -47,9 +53,6 @@ public class MainActivity extends AppCompatActivity {
         numbers.add("6477700458");
         numbers.add("6476877805");
 
-
-        ListAdapter numberAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, numbers);
-        ListAdapter messageAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, messages);
 
         msgList.setAdapter(messageAdapter);
         numList.setAdapter(numberAdapter);
@@ -68,13 +71,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendSMS();
             }
         });
+
+        addMsgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!msgEdit.getText().toString().trim().equals("")) {
+                    messages.add(msgEdit.getText().toString().trim());
+                    messageAdapter.notifyDataSetChanged();
+                }
+            }
+        });
+
     }
 
     private void sendSMS() {
