@@ -55,18 +55,57 @@
         android:layout_gravity="center_horizontal" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="214dp"
         android:layout_height="wrap_content"
         android:text="Send"
         android:id="@+id/sendButton"
         android:layout_gravity="center_horizontal" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    <TableLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Msg"
-        android:id="@+id/addMsgButton" />
+        android:layout_height="100dp"
+        android:layout_gravity="bottom|center_horizontal">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center_horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clear Prefs"
+                android:id="@+id/clearPrefsButton"
+                android:layout_column="7"
+                android:layout_gravity="top|center_horizontal" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="Add #"
+                android:id="@+id/addNumButton"
+                android:layout_column="3"
+                android:layout_gravity="left|center_horizontal" />
+
+            <Button
+                android:text="Add Msg"
+                android:id="@+id/addMsgButton"
+                android:layout_column="12"
+                android:layout_gravity="center_horizontal|right" />
+        </TableRow>
+    </TableLayout>
 
 
 </LinearLayout>
