@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity
     protected void onPause()
     {
         super.onPause();
-        //Toast.makeText(getApplicationContext(), "paused..", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "paused..", Toast.LENGTH_SHORT).show();
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor ed = preferences.edit();
         ed.putString(NUMKEY, TextUtils.join(NUMDELIM, numbers));
