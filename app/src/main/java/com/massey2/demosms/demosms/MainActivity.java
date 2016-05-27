@@ -1,6 +1,7 @@
 package com.massey2.demosms.demosms;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -31,6 +32,11 @@ public class MainActivity extends AppCompatActivity
     SharedPreferences preferences;
 
     static final String MSGKEY = "preset_messages", NUMKEY = "preset_nums", MSGEDITKEY = "msg_edit", NUMEDITKEY = "num_edit", MSGDELIM = "&&&&", NUMDELIM = ",";
+
+    public void sendMessage(View view){
+        Intent startNewActivity = new Intent(this, About.class);
+        startActivity(startNewActivity);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
