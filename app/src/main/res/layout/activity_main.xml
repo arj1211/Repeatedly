@@ -100,6 +100,15 @@
                 android:layout_gravity="left|center_horizontal" />
 
             <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About"
+                android:id="@+id/button"
+                android:onClick="sendMessage"
+                android:layout_column="7" />
+
+            <Button
                 android:text="Add Msg"
                 android:id="@+id/addMsgButton"
                 android:layout_column="12"
